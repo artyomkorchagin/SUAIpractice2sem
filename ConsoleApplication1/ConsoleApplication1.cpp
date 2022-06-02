@@ -5,7 +5,6 @@ int main()
     setlocale(0, "");  //установка кодировки для ввода и вывода кириллицы в консоль
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    double Time = 0;   //время работы сортировки
     string file_name;
     system("cls");
     cout << "Введите название файла или путь к файлу: ";
@@ -25,8 +24,8 @@ int main()
                 first_text += str;
         }
         string* words = SeparateWords(first_text);       //формируем слова в массив
-        words = CombSort(words, Time);                         //сортировка
-        CreateOutput(words, first_text, Time);                 //формирование файла output.txt и analysis.txt
+        words = CombSort(words);                         //сортировка
+        CreateOutput(words, first_text);                 //формирование файла output.txt и analysis.txt
         cout << "Сортировка прошла успешно.";
     }
     else {

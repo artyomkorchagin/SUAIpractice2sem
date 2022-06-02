@@ -1,7 +1,7 @@
 #include "header.h"
 
 int amountOfWords;          //количество слов в тексте
-
+double Time;
 //создание слов
 string* SeparateWords(string text) {
     string* result;
@@ -34,13 +34,13 @@ string* SeparateWords(string text) {
 }
 
 //сортировка расчЄской
-string* CombSort(string* wordArr, double &Time) {
+string* CombSort(string* wordArr) {
     string FirstLetterOfwordNow, FirstLetterOfwordNext, wordNow, wordNext;
     unsigned int startTime = clock();       //начальное врем€
     int jump = amountOfWords;
     bool swapped = true;                    //флаг перестановки элементов
 
-    while (swapped)
+    while (jump > 1 || swapped)
     {
         if (jump > 1)
             jump -= 1;
@@ -55,14 +55,14 @@ string* CombSort(string* wordArr, double &Time) {
         }
     }
     unsigned int endTime = clock();            //конечное врем€
-    Time = (endTime - startTime) / 1000.0;      //искомое врем€
+    Time=(double)(endTime-startTime)/(double)CLOCKS_PER_SEC;
     return wordArr;
 }
 
 
 
 //формирование файла output.txt и analysis.txt
-void CreateOutput(string* textArr, string first_text, double Time) {
+void CreateOutput(string* textArr, string first_text) {
     string text = "", word, s;
     string alphabet = "абвгдеЄжзийклмнопрстуфхцчшщъыьэю€";
     int* array_count = new int[alphabet.size()]; //массив количества слов по каждой первой букве встречающиес€ в тексте

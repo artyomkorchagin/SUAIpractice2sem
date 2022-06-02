@@ -6,12 +6,12 @@
 #include <list>
 #include <fstream>
 #include <sstream>
-#include <windows.h>
+#include <Windows.h>
 
 using namespace std;
 
 string* SeparateWords(string text);
 
-string* CombSort(string* wordArr, double &Time);
+string* CombSort(string* wordArr);
 
-void CreateOutput(string* textArr, string first_text, double Time);
+void CreateOutput(string* textArr, string first_text);
