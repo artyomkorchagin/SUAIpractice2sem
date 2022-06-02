@@ -1,5 +1,5 @@
 SUAI professional coding practice 5131 Korchagin Artyom 2022 |
------------------------------------------------------------+
+-------------------------------------------------------------+
 
 This program is designed to analyze and sort the desired cyrillic text from txt file in alphabetical order using the Comb Sorting Method.
 Make sure that your txt file is in ANSI enoding and it is placed within the ConsoleApplication1/ConsoleApplication1 directory (my own testing files can be found there)
