@@ -12,6 +12,6 @@ using namespace std;
 
 string* SeparateWords(string text);
 
-string* CombSort(string* wordArr);
+string* CombSort(string* wordArr, double &Time);
 
-void CreateOutput(string* textArr, string first_text);
+void CreateOutput(string* textArr, string first_text, double Time);

@@ -1,7 +1,6 @@
 #include "header.h"
 
 int amountOfWords;          //количество слов в тексте
-double Time;                //врем€ сортировки в секундах
 
 //создание слов
 string* SeparateWords(string text) {
@@ -17,8 +16,8 @@ string* SeparateWords(string text) {
             word += text[i];
             IsWord = true;
         }
-        else {                                        //в противном случае
-            if (IsWord)listofwords.push_back(word);  //заносим слово в список
+        else {                                          //в противном случае
+            if (IsWord)listofwords.push_back(word);     //заносим слово в список
             IsWord = false;
             word = "";
         }
@@ -35,11 +34,11 @@ string* SeparateWords(string text) {
 }
 
 //сортировка расчЄской
-string* CombSort(string* wordArr) {
+string* CombSort(string* wordArr, double &Time) {
     string FirstLetterOfwordNow, FirstLetterOfwordNext, wordNow, wordNext;
-    unsigned int startTime = clock();      //начальное врем€
+    unsigned int startTime = clock();       //начальное врем€
     int jump = amountOfWords;
-    bool swapped = true;
+    bool swapped = true;                    //флаг перестановки элементов
 
     while (swapped)
     {
@@ -55,7 +54,7 @@ string* CombSort(string* wordArr) {
                 swap(wordArr[i], wordArr[i + jump]), swapped = true;
         }
     }
-    unsigned int endTime = clock();             //конечное врем€
+    unsigned int endTime = clock();            //конечное врем€
     Time = (endTime - startTime) / 1000.0;      //искомое врем€
     return wordArr;
 }
@@ -63,7 +62,7 @@ string* CombSort(string* wordArr) {
 
 
 //формирование файла output.txt и analysis.txt
-void CreateOutput(string* textArr, string first_text) {
+void CreateOutput(string* textArr, string first_text, double Time) {
     string text = "", word, s;
     string alphabet = "абвгдеЄжзийклмнопрстуфхцчшщъыьэю€";
     int* array_count = new int[alphabet.size()]; //массив количества слов по каждой первой букве встречающиес€ в тексте
